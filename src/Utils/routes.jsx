@@ -9,7 +9,7 @@ export const routes = createBrowserRouter([
 
     },
     {
-        path: '/vistoria',
+        path: '/vistoria:id',
         element: <>Vistorias</>
     },
     {
@@ -18,7 +18,7 @@ export const routes = createBrowserRouter([
     },
     {
         path: '/vistorias/adicionar',
-        element: <>Adicionar Vistorias</>
+        element: <Pages.VistoriasAdd />
     },
     {
         path: '/vistorias/concluir',

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Colors from "../../Utils/colors";
 import colors from "../../Utils/colors";
-import { FiAlertTriangle } from "react-icons/fi";
+import { FiShoppingBag, FiFileText, FiFilePlus } from "react-icons/fi";
 
 
 export const Menu = () => {
@@ -25,18 +25,30 @@ export const Menu = () => {
         width: 100px;
         padding: 10px;
         font-size: 22pt;
+        .text{
+            font-size: 10pt;
+            font-weight: 700;
+        }
     }
     
     `
 
     return (<Model>
-        <Link to={'/vistorias'} className="item">
-            <FiAlertTriangle />
+        <Link to={'/vistorias/historico'} className="item">
+            <FiShoppingBag />
+            <p className="text">historico</p>
+
+
         </Link>
-        <Link className="item">2</Link>
-        <Link className="item">3</Link>
-        <Link className="item">4</Link>
-        <Link className="item">5</Link>
+        <Link to={'/vistorias/adicionar'} className="item">
+            < FiFilePlus />
+            <p className="text">solicitacao</p>
+        </Link>
+        <Link to={'/vistorias/concluir'} className="item">
+            < FiFileText />
+            <p className="text">laudo</p>
+        </Link>
+
     </Model>)
 }
 
@@ -162,13 +174,13 @@ export const ListPendentes = () => {
                 <div className="a">Municipio</div>
                 <div className="a">Bairro</div>
             </Link>
-            <Link className="item data" >
+            <Link to={`/vistoria/${0}`} className="item data" >
                 <div className="a">Ivan Dias</div>
                 <div className="a">10/10/2023</div>
                 <div className="a">Mateus Leme</div>
                 <div className="a">Paraiso</div>
             </Link>
-            <Link className="item data" >
+            <Link to={`/vistoria/${0}`} className="item data" >
                 <div className="a">Ivan Dias</div>
                 <div className="a">10/10/2023</div>
                 <div className="a">Mateus Leme</div>
