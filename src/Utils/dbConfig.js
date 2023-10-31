@@ -1,0 +1,1 @@
+export const URL = `https://jlserver.netlify.app/api/vistorias`
