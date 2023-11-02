@@ -22,11 +22,11 @@ export const routes = createBrowserRouter([
     },
     {
         path: '/vistorias/concluir',
-        element: <>Concluir Vistorias</>
+        element: <Pages.VistoriasConcluir />
     },
     {
         path: '/vistorias/historico',
-        element: <>Vistorias Concluidas</>
+        element: <Pages.Historico />
     },
 
 ]

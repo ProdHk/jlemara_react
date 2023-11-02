@@ -1,10 +1,10 @@
 import styled from "styled-components"
-import Components from "../Components"
-import colors from "../Utils/colors"
+import Components from "../../Components"
+import colors from "../../Utils/colors"
 import { Link } from "react-router-dom"
 import { useState } from "react"
 import axios from "axios"
-import {URL} from '../Utils/dbConfig'
+import { URL } from '../../Utils/dbConfig'
 
 
 
@@ -37,8 +37,8 @@ const Model = styled.div`
             align-items: center;
             justify-content: space-between;
             .section-row{
+                border: solid 1px ${colors.Blue};
                 border-radius: 10px;
-                box-shadow: 1px 1px 5px black;
                 width: 50%;
                 padding: 25px;
                 display:flex;
@@ -53,7 +53,7 @@ const Model = styled.div`
            
                 
            .section-lote{
-                box-shadow: 1px 1px 5px black;
+                border: solid 1px ${colors.Blue};
                 border-radius: 10px;
                 width: 40%;
                 display:flex;
@@ -68,11 +68,11 @@ const Model = styled.div`
             padding: 10px;
             border-radius: 10px;
             border: none;
-            background-color: ${colors.Grey};
             text-align: center;
             align-items: center;
             justify-content: center;
                 transition: all .2s ease-in-out;
+                border: solid 1px ${colors.Blue};
 
             display: flex;
             &:hover{
@@ -92,15 +92,14 @@ const Model = styled.div`
                 }
         }
         .icon{   
-            box-shadow: 1px 1px 5px black;
-
+            border: solid 1px ${colors.Blue};
             width: 20%;
             margin-top: 15px;
             border-radius: 10px;
             padding: 15px;
             transition: all .2s ease-in-out;
             &:hover{
-                border: none;
+                border: solid 1px ${colors.Green};
                 border-radius: 10px 20px 10px 20px;
                 background-color: ${colors.Green};
                 transition: all .2s ease-in-out;
@@ -116,20 +115,20 @@ const Model = styled.div`
 
 export default function VistoriasAdd(props) {
 
-        const [solicitante, setSolicitante] = useState('')
-        const [motivo, setMotivo] = useState('')
-        const [observacoes, setObservacoes] = useState('')
-        const [nLote, setNLote] = useState(0)
-        const [nQuadra, setNQuadra] = useState(0)
-        const [bairro, setBairro] = useState('')
-        const [municipio, setMunicipio] = useState('')
+    const [solicitante, setSolicitante] = useState('')
+    const [motivo, setMotivo] = useState('')
+    const [observacoes, setObservacoes] = useState('')
+    const [nLote, setNLote] = useState(0)
+    const [nQuadra, setNQuadra] = useState(0)
+    const [bairro, setBairro] = useState('')
+    const [municipio, setMunicipio] = useState('')
 
-        const setData = async () =>{
-            const lote = {nLote,nQuadra,bairro,municipio}
-            const data = {solicitante,motivo,observacoes, lote}
-            await axios.post(URL, data)
-           
-        }
+    const setData = async () => {
+        const lote = { nLote, nQuadra, bairro, municipio }
+        const data = { solicitante, motivo, observacoes, lote }
+        await axios.post(URL, data)
+
+    }
     return (
         <Model>
             <Components.Sidebar />
@@ -138,13 +137,13 @@ export default function VistoriasAdd(props) {
                     Nova solicitação
                 </div>
                 <div className="form">
-                    
+
 
                     <div className="section-row">
                         <div className="item">
                             <label>Seu nome</label>
                             <input type="text"
-                            onChange={(e) => {setSolicitante(e.target.value)}}
+                                onChange={(e) => { setSolicitante(e.target.value) }}
                                 placeholder="Insira seu nome aqui"
                             />
                         </div>
@@ -153,15 +152,15 @@ export default function VistoriasAdd(props) {
                         <div className="item">
                             <label>Motivo</label>
                             <input type="text"
-                            onChange={(e) => {setMotivo(e.target.value)}}
+                                onChange={(e) => { setMotivo(e.target.value) }}
                                 placeholder="Qual o motivo da vistoria?"
                             />
                         </div>
-                        
+
                         <div className="item">
                             <label>Observações</label>
                             <input type="text"
-                            onChange={(e) => {setObservacoes(e.target.value)}}
+                                onChange={(e) => { setObservacoes(e.target.value) }}
                                 placeholder="Existe alguma ?"
                             />
                         </div>
@@ -171,30 +170,32 @@ export default function VistoriasAdd(props) {
                         {/* Lote */}
                         <label>Numero do lote</label>
                         <input type="number"
-                        onChange={(e) => {setNLote(e.target.value)}}
+                            onChange={(e) => { setNLote(e.target.value) }}
                         />
 
                         <label>Numero da quadra</label>
                         <input type="number"
-                        onChange={(e) => {setNQuadra(e.target.value)}}
+                            onChange={(e) => { setNQuadra(e.target.value) }}
                         />
 
                         <label>Bairro</label>
                         <input type="text"
-                            onChange={(e) => {setBairro(e.target.value)}}
+                            placeholder="Qual o nome do bairro?"
+                            onChange={(e) => { setBairro(e.target.value) }}
                         />
 
                         <label>Municipio</label>
                         <input type="text"
-                        onChange={(e) => {setMunicipio(e.target.value)}}
+                            placeholder="Qual o nome do municipio?"
+                            onChange={(e) => { setMunicipio(e.target.value) }}
                         />
 
 
                     </div>
                 </div>
-                   
-                        <Link onClick={setData} className="icon">Adicionar</Link>
-                    
+
+                <Link onClick={setData} className="icon">Adicionar</Link>
+
             </div>
         </Model>
     )

@@ -5,14 +5,12 @@ import { Link } from "react-router-dom"
 import { FiHome, FiFlag, FiUser, FiLogOut } from "react-icons/fi";
 import colors from "../../Utils/colors";
 
-let Model
 export default function Sidebar() {
 
-    Model = styled.div`
-    background-color: ${colors.Grey};
-    border-right: 1px solid #00000026;
+    const Model = styled.div`
     padding-top: 30px;
     width: 6vw;
+    margin-right: 1px;
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -22,8 +20,8 @@ export default function Sidebar() {
     height: 100vh;
     font-size: 18pt;
     transition: all .2s ease-in-out ;
-    box-shadow: 1px 5px 10px black;
-    z-index: 2;
+    border-rigth: solid 1px  #0000003e;
+
 
     `
 
@@ -34,11 +32,8 @@ export default function Sidebar() {
     flex-direction: column;
     text-align: center;
     align-items: center;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
     justify-content: space-around;
-        transition: all .2s ease-in-out ;
+    transition: all .2s ease-in-out ;
 
 
     .item{
